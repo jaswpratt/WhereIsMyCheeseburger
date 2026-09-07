@@ -19,12 +19,24 @@ public class Burger {
    @GeneratedValue(strategy = GenerationType.IDENTITY)
    private Long id;
 
+   /**
+    * 
+    */
    private String name;
-    
+
+   /**
+    * 
+    */
    private String restaurantName;
-    
+
+   /**
+    * 
+    */
    private Double rating;
-    
+
+   /**
+    * 
+    */
    private String notes;
 
    public Burger() { }

@@ -8,12 +8,12 @@ import org.springframework.boot.web.servlet.support.SpringBootServletInitializer
 @SpringBootApplication
 public class CheeseburgerServer extends SpringBootServletInitializer {
 
-    public static void main(String[] args) {
-        SpringApplication.run(CheeseburgerServer.class, args);
-    }
+   public static void main(String[] args) {
+      SpringApplication.run(CheeseburgerServer.class, args);
+   }
 
-    @Override
-    protected SpringApplicationBuilder configure(SpringApplicationBuilder builder) {
-        return builder.sources(CheeseburgerServer.class);
-    }
+   @Override
+   protected SpringApplicationBuilder configure(SpringApplicationBuilder builder) {
+      return builder.sources(CheeseburgerServer.class);
+   }
 }
