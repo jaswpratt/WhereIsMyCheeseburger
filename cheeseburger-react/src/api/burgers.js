@@ -1,4 +1,4 @@
-const API_BASE = "http://localhost:8080/api/burgers";
+const API_BASE = `${import.meta.env.BASE_URL}api/burgers`;
 
 export async function getBurgers() {
   const response = await fetch(API_BASE);

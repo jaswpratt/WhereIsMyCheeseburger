@@ -30,7 +30,7 @@ export default function BurgerList() {
             <li key={burger.id}>
               <strong>{burger.name}</strong> at {burger.restaurantName} —{" "}
               {burger.rating}/10
-              {burger.notes && <p>{burger.notes}</p>}
+              {burger.notes && <p style={{ whiteSpace: "pre-wrap" }}>{burger.notes}</p>}
             </li>
           ))}
         </ul>
