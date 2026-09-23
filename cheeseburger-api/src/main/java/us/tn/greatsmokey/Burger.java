@@ -18,8 +18,7 @@ public class Burger {
    private Double rating;
    private String notes;
 
-   public Burger() {
-   }
+   public Burger() { }
 
    public Burger(String name, Restaurant restaurant, Double rating, String notes) {
       this.name = name;
