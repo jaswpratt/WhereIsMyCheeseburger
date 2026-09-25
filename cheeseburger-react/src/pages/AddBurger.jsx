@@ -7,8 +7,11 @@ export default function AddBurger() {
   const [form, setForm] = useState({
     name: "",
     restaurantName: "",
+    restaurantState: "",
     rating: "",
     notes: "",
+    side: "",
+    drink: "",
   });
   const [submitting, setSubmitting] = useState(false);
   const [error, setError] = useState(null);
@@ -40,7 +43,7 @@ export default function AddBurger() {
       <form onSubmit={handleSubmit}>
         <div>
           <label>
-            Burger name
+            Burger name - 
             <input
               name="name"
               value={form.name}
@@ -51,7 +54,7 @@ export default function AddBurger() {
         </div>
         <div>
           <label>
-            Restaurant
+            Restaurant - 
             <input
               name="restaurantName"
               value={form.restaurantName}
@@ -62,7 +65,30 @@ export default function AddBurger() {
         </div>
         <div>
           <label>
-            Rating (0-10)
+            Restaurant's state (optional) - 
+            <input
+              name="restaurantState"
+              value={form.restaurantState}
+              onChange={handleChange}
+              placeholder="e.g. Oklahoma"
+            />
+          </label>
+        </div>
+        <div>
+            <label>
+              Side (optional) - 
+              <input name="side" value={form.side} onChange={handleChange} />
+            </label>
+          </div>
+          <div>
+            <label>
+              Drink (optional) - 
+              <input name="drink" value={form.drink} onChange={handleChange} />
+            </label>
+          </div>
+        <div>
+          <label>
+            Rating (0-10) - 
             <input
               name="rating"
               type="number"
@@ -76,7 +102,7 @@ export default function AddBurger() {
         </div>
         <div>
           <label>
-            Notes
+            Notes - 
             <textarea name="notes" value={form.notes} onChange={handleChange} />
           </label>
         </div>
