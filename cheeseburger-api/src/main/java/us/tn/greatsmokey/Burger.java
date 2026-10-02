@@ -17,14 +17,18 @@ public class Burger {
 
    private Double rating;
    private String notes;
-
+   private String side;
+   private String drink;
+   
    public Burger() { }
 
-   public Burger(String name, Restaurant restaurant, Double rating, String notes) {
+   public Burger(String name, Restaurant restaurant, Double rating, String notes, String side, String drink) {
       this.name = name;
       this.restaurant = restaurant;
       this.rating = rating;
       this.notes = notes;
+      this.side = side;
+      this.drink = drink;
    }
 
    public Long getId() {
@@ -61,5 +65,39 @@ public class Burger {
 
    public void setNotes(String notes) {
       this.notes = notes;
+   }
+
+   /**
+    * @return the side
+    */
+   public String getSide() {
+      return side;
+   }
+
+   /**
+    * @param side the side to set
+    */
+   public void setSide(String side) {
+      this.side = side;
+   }
+
+   /**
+    * @return the drink
+    */
+   public String getDrink() {
+      return drink;
+   }
+
+   /**
+    * @param drink the drink to set
+    */
+   public void setDrink(String drink) {
+      this.drink = drink;
+   }
+
+   @Override
+   public String toString() {
+   return "Burger [id=" + id + ", name=" + name + ", restaurant=" + restaurant + ", rating=" + rating + ", notes="
+         + notes + ", side=" + side + ", drink=" + drink + "]";
    }
 }

@@ -31,27 +31,35 @@ public class BurgerController {
 
    @PostMapping
    public BurgerResponse createBurger(@RequestBody BurgerRequest request) {
-      Restaurant restaurant = restaurantRepository.findByName(request.restaurantName())
-            .orElseGet(() -> restaurantRepository.save(new Restaurant(request.restaurantName())));
+       Restaurant restaurant = restaurantRepository.findByName(request.restaurantName()).orElseGet(() -> {
+                   Restaurant newRestaurant = new Restaurant(request.restaurantName());
+                   if (request.restaurantState() != null && !request.restaurantState().isBlank()) {
+                       newRestaurant.setState(request.restaurantState());
+                   }
+                   return restaurantRepository.save(newRestaurant);
+               });
 
-      Burger burger = new Burger(request.name(), restaurant, request.rating(), request.notes());
-      Burger saved = burgerRepository.save(burger);
-      return BurgerResponse.from(saved);
+       Burger burger = new Burger(request.name(), restaurant, request.rating(), request.notes(), request.side(), request.drink());
+       Burger saved = burgerRepository.save(burger);
+       return BurgerResponse.from(saved);
    }
 
    // Request shape: still flat, matches what the React form already sends
-   public record BurgerRequest(String name, String restaurantName, Double rating, String notes) { }
+   public record BurgerRequest(String name, String restaurantName, String restaurantState, Double rating, String notes, String side, String drink)  { }
 
    // Response shape: flattens restaurant back to a plain name, so React doesn't need to change
-   public record BurgerResponse(Long id, String name, String restaurantName, Double rating, String notes) {
+   public record BurgerResponse(Long id, String name, String restaurantName, String restaurantState, Double rating, String notes, String side, String drink) {
       static BurgerResponse from(Burger burger) {
+         Restaurant r = burger.getRestaurant();
          return new BurgerResponse(
-               burger.getId(),
-               burger.getName(),
-               burger.getRestaurant() != null ? burger.getRestaurant().getName() : null,
-               burger.getRating(),
-               burger.getNotes()
-         );
+        		 burger.getId(), 
+        		 burger.getName(),
+        		 r != null ? r.getName() : null,
+                 r != null ? r.getState() : null,
+                 burger.getRating(), 
+                 burger.getNotes(), 
+                 burger.getSide(),
+                 burger.getDrink());
       }
    }
 }

@@ -18,14 +18,19 @@ public class Restaurant {
    private Integer restaurantId;
 
    private String name;
+   
    private String location;
+   
    private String type;
+   
    private String specialty;
+   
+   private String state;
 
    public Restaurant() { }
    
    public Restaurant(String restaurantName) { 
-	   this.name = restaurantName;
+         this.name = restaurantName;
    }
 
    /**
@@ -98,9 +103,23 @@ public class Restaurant {
       this.specialty = specialty;
    }
 
+   /**
+    * @return the state
+    */
+   public String getState() {
+      return state;
+   }
+
+   /**
+    * @param state the state to set
+    */
+   public void setState(String state) {
+      this.state = state;
+   }
+
    @Override
    public String toString() {
-      return "Restaurant [restaurantId=" + restaurantId + ", name=" + name + ", location=" + location + ", type="
-             + type + ", specialty=" + specialty + "]";
+   return "Restaurant [restaurantId=" + restaurantId + ", name=" + name + ", location=" + location + ", type=" + type
+         + ", specialty=" + specialty + ", state=" + state + "]";
    }
 }
