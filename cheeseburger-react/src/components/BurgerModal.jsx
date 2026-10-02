@@ -1,9 +1,27 @@
+import { useEffect } from "react";
+
 export default function BurgerModal({ burger, onClose }) {
+  useEffect(() => {
+    function handleKeyDown(e) {
+      if (e.key === "Escape") {
+        onClose();
+      }
+    }
+
+    document.addEventListener("keydown", handleKeyDown);
+
+    // Cleanup: runs when the modal closes/unmounts, removing the listener
+    // so it doesn't keep firing (or stack up duplicates) afterward.
+    return () => {
+      document.removeEventListener("keydown", handleKeyDown);
+    };
+  }, [onClose]);
+
   return (
     // The dark overlay that covers the whole screen behind the popup.
     // Clicking it closes the modal, which feels natural to users.
     <div
-      onClick={onClose}
+//      onClick={onClose}
       style={{
         position: "fixed",
         top: 0,
@@ -20,7 +38,7 @@ export default function BurgerModal({ burger, onClose }) {
           it, clicking INSIDE the box would bubble up to the overlay's
           onClick above and close the modal immediately, which we don't want. */}
       <div
-        onClick={(e) => e.stopPropagation()}
+        //onClick={(e) => e.stopPropagation()}
         style={{
           backgroundColor: "white",
           padding: "24px",
