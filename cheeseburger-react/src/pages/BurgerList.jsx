@@ -2,13 +2,12 @@ import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { getBurgers } from "../api/burgers";
 import BurgerModal from "../components/BurgerModal";
+import "./BurgerList.css";
 
 export default function BurgerList() {
   const [burgers, setBurgers] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
-
-  // NEW: tracks which burger's popup is open. null means "none."
   const [selectedBurger, setSelectedBurger] = useState(null);
 
   useEffect(() => {
@@ -24,27 +23,23 @@ export default function BurgerList() {
   return (
     <div>
       <h1>Cheeseburger Log</h1>
-      <Link to="/add">+ Add a burger</Link>
+      <Link to="/add" className="add-link">
+        + Add a burger
+      </Link>
 
       {burgers.length === 0 ? (
-        <p>No burgers logged yet.</p>
+        <p className="empty-state">No burgers logged yet.</p>
       ) : (
-        <ul>
+        <ul className="burger-list">
           {burgers.map((burger) => (
-            <li
-              key={burger.id}
-              onClick={() => setSelectedBurger(burger)}
-              style={{ cursor: "pointer" }}
-            >
-              <strong>{burger.name}</strong> — {burger.rating}/10
+            <li key={burger.id} onClick={() => setSelectedBurger(burger)}>
+              <span className="burger-name">{burger.name}</span>
+              <span className="rating">{burger.rating}/10</span>
             </li>
           ))}
         </ul>
       )}
 
-      {/* Only render the modal AT ALL when something is selected.
-          When selectedBurger is null, this whole expression is false,
-          and React renders nothing for it. */}
       {selectedBurger && (
         <BurgerModal
           burger={selectedBurger}

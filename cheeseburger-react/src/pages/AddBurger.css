@@ -1,0 +1,70 @@
+.burger-form {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    margin-top: 24px;
+}
+
+.field {
+    text-align: left;
+}
+
+.field label {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--text-h);
+}
+
+.field input,
+.field textarea {
+    width: 100%;
+    box-sizing: border-box;
+    font: inherit;
+    font-weight: 400;
+    padding: 8px 10px;
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    background: var(--bg);
+    color: var(--text-h);
+}
+
+.field input:focus,
+.field textarea:focus {
+    outline: none;
+    border-color: var(--accent);
+}
+
+.field textarea {
+    resize: vertical;
+    min-height: 80px;
+}
+
+.error-message {
+    color: var(--error);
+    font-size: 14px;
+    margin: 0;
+}
+
+.submit-button {
+    align-self: flex-start;
+    font: inherit;
+    font-weight: 500;
+    padding: 8px 20px;
+    border: none;
+    border-radius: 6px;
+    background: var(--accent);
+    color: #fff;
+    cursor: pointer;
+}
+
+.submit-button:hover:not(:disabled) {
+    opacity: 0.9;
+}
+
+.submit-button:disabled {
+    opacity: 0.6;
+    cursor: default;
+}

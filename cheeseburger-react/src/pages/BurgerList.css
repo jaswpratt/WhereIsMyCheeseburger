@@ -1,0 +1,50 @@
+.burger-list {
+    list-style: none;
+    padding: 0;
+    margin: 24px 0 0;
+}
+
+.burger-list li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px 4px;
+    border-bottom: 1px solid var(--border);
+    cursor: pointer;
+}
+
+.burger-list li:last-child {
+    border-bottom: none;
+}
+
+.burger-name {
+    font-weight: 500;
+    color: var(--text-h);
+    transition: color 0.15s;
+}
+
+.burger-list li:hover .burger-name {
+    color: var(--accent);
+}
+
+.rating {
+    color: var(--text);
+    font-size: 14px;
+}
+
+.add-link {
+    display: inline-block;
+    margin-top: 8px;
+    color: var(--accent);
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.add-link:hover {
+    text-decoration: underline;
+}
+
+.empty-state {
+    color: var(--text);
+    margin-top: 24px;
+}

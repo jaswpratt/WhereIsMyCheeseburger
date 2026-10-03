@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { createBurger } from "../api/burgers";
+import "./AddBurger.css";
 
 export default function AddBurger() {
   const navigate = useNavigate();
@@ -40,10 +41,10 @@ export default function AddBurger() {
   return (
     <div>
       <h1>Log a Cheeseburger</h1>
-      <form onSubmit={handleSubmit}>
-        <div>
+      <form onSubmit={handleSubmit} className="burger-form">
+        <div className="field">
           <label>
-            Burger name - 
+            Burger name
             <input
               name="name"
               value={form.name}
@@ -52,9 +53,9 @@ export default function AddBurger() {
             />
           </label>
         </div>
-        <div>
+        <div className="field">
           <label>
-            Restaurant - 
+            Restaurant
             <input
               name="restaurantName"
               value={form.restaurantName}
@@ -63,9 +64,9 @@ export default function AddBurger() {
             />
           </label>
         </div>
-        <div>
+        <div className="field">
           <label>
-            Restaurant's state (optional) - 
+            Restaurant's state (optional)
             <input
               name="restaurantState"
               value={form.restaurantState}
@@ -74,21 +75,21 @@ export default function AddBurger() {
             />
           </label>
         </div>
-        <div>
-            <label>
-              Side (optional) - 
-              <input name="side" value={form.side} onChange={handleChange} />
-            </label>
-          </div>
-          <div>
-            <label>
-              Drink (optional) - 
-              <input name="drink" value={form.drink} onChange={handleChange} />
-            </label>
-          </div>
-        <div>
+        <div className="field">
           <label>
-            Rating (0-10) - 
+            Side (optional)
+            <input name="side" value={form.side} onChange={handleChange} />
+          </label>
+        </div>
+        <div className="field">
+          <label>
+            Drink (optional)
+            <input name="drink" value={form.drink} onChange={handleChange} />
+          </label>
+        </div>
+        <div className="field">
+          <label>
+            Rating (0-10)
             <input
               name="rating"
               type="number"
@@ -100,14 +101,14 @@ export default function AddBurger() {
             />
           </label>
         </div>
-        <div>
+        <div className="field">
           <label>
-            Notes - 
+            Notes
             <textarea name="notes" value={form.notes} onChange={handleChange} />
           </label>
         </div>
-        {error && <p style={{ color: "red" }}>{error}</p>}
-        <button type="submit" disabled={submitting}>
+        {error && <p className="error-message">{error}</p>}
+        <button type="submit" disabled={submitting} className="submit-button">
           {submitting ? "Saving..." : "Save burger"}
         </button>
       </form>
