@@ -17,6 +17,7 @@ The app is built to grow into that vision incrementally, one real feature at a t
 - **Regional tracking** — restaurants can be tagged with a U.S. state, laying the groundwork for exploring how cheeseburgers differ by region
 - **Click-through details** — click any burger in your log to open a popup with its full details
 - **Responsive, theme-aware styling** — a clean, minimal interface that automatically adapts to light/dark mode based on your system preference
+- **Live deployment found at ** — `https://virginiabrightleaf.tech/cheeseburger-api/`
 
 ## Tech Stack
 
