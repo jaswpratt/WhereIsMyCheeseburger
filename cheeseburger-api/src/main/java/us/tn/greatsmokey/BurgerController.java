@@ -114,12 +114,12 @@ public class BurgerController {
        * @return the flattened response representation
        */
       static BurgerResponse from(Burger burger) {
-         Restaurant r = burger.getRestaurant();
+         Restaurant restaurant = burger.getRestaurant();
          return new BurgerResponse(
                burger.getId(), 
                burger.getName(),
-               r != null ? r.getName() : null,
-                 r != null ? r.getState() : null,
+               restaurant != null ? restaurant.getName() : null,
+               restaurant != null ? restaurant.getState() : null,
                  burger.getRating(), 
                  burger.getNotes(), 
                  burger.getSide(),
